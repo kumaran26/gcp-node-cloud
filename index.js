@@ -2,7 +2,7 @@ const express = require('express');
 
 const app = express();
 
-const { pg } = require('pg');
+const { pg } = require('pg'); 
 
 var config = new pg({
     user: 'postgres', 
