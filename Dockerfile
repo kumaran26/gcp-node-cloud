@@ -14,4 +14,6 @@ COPY . .
 
 EXPOSE 3000
 
+EXPOSE 5432
+
 CMD ["node", "index.js"]
