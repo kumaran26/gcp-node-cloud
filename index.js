@@ -18,7 +18,7 @@ let resp = "";
 client.connect()
     .then(() => {
         hello = "succcess"
-         resp = await client.query('SELECT * FROM persons');
+         //resp = await client.query('SELECT * FROM persons');
         console.log('Connected to PostgreSQL!')
                 
                 })
