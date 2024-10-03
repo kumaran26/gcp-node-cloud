@@ -2,26 +2,20 @@ const express = require('express');
 
 const app = express();
 
-const { pg } = require('pg'); 
+const { Client } = require('pg');
 
-var config = new pg({
-    user: 'postgres', 
-    database: 'test', 
-    password: 'postgres', 
-    host: '35.226.224.213', 
-    port: 5432
+const client = new Client({
+    user: 'postgres',
+    host: '35.226.224.213',
+    database: 'test',
+    password: 'postgres',
+    port: 5432,
 });
 
-config.connect();
-
-config.query('SELECT * from persons', function(err, res) {
-    if(!err) {
-        console.log(res.rows)
-    } else {
-      console.log(err.message)
-    }
-  config.end;
-});
+client.connect()
+    .then(() => console.log('Connected to PostgreSQL!'))
+    .catch(err => console.error('Connection error', err.stack))
+    .finally(() => client.end());
 
 app.get('/', (req, res) => {
     res.send('Node Server is running!!');
