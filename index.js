@@ -12,13 +12,19 @@ const client = new Client({
     port: 5432,
 });
 
+let hello = "";
+
 client.connect()
-    .then(() => console.log('Connected to PostgreSQL!'))
+    .then(() => {
+        hello = "succcess"
+        console.log('Connected to PostgreSQL!')
+                
+                })
     .catch(err => console.error('Connection error', err.stack))
     .finally(() => client.end());
 
 app.get('/', (req, res) => {
-    res.send('Node Server is running!!');
+    res.send(`Node Server is running!! ${hello}`);
 });
 
 app.listen(3000, () => {
