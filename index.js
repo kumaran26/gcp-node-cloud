@@ -13,12 +13,13 @@ const client = new Client({
 });
 
 let hello = "";
-let resp = "";
 
 client.connect()
     .then(() => {
         hello = "succcess"
-         //resp = await client.query('SELECT * FROM persons');
+         client.query('SELECT * FROM persons').then((resp) => {
+             hello = resp;
+         });
         console.log('Connected to PostgreSQL!')
                 
                 })
@@ -26,7 +27,7 @@ client.connect()
     .finally(() => client.end());
 
 app.get('/', (req, res) => {
-    res.send(`Node Server is running!! ${resp}`);
+    res.send(`Node Server is running!! ${hello}`);
 });
 
 app.listen(3000, () => {
