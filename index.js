@@ -21,7 +21,7 @@ async function queryDatabase() {
         console.log('Connected to PostgreSQL!');
 
         // Example query: select all rows from a table named 'users'
-        const res = await client.query('SELECT * FROM users');
+        const res = await client.query('SELECT * FROM persons');
         console.log('Query Results:', res.rows); // Logs the result rows
         hello = res.rows;
     } catch (err) {
