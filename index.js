@@ -23,7 +23,7 @@ async function queryDatabase() {
         // Example query: select all rows from a table named 'users'
         const res = await client.query('SELECT * FROM persons');
         console.log('Query Results:', JSON.stringify(res.rows)); // Logs the result rows
-        hello = res.rows;
+        hello = JSON.stringify(res.rows);
     } catch (err) {
         console.error('Error executing query', err.stack);
     } finally {
