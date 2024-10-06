@@ -12,7 +12,7 @@ const client = new Client({
     port: 5432,
 });
 
-let hello = "";
+let hello = ""; 
 
 async function queryDatabase() {
     try {
