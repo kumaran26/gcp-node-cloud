@@ -7,7 +7,20 @@ docker run -d --name demo-docker-image nginx
 docker stop demo-docker-image
 
 docker run -d -p 5000:80 nginx
+docker run -p 3000-3000 node-app
 
 docker build -t node-app:1.0 .
 
+docker buildx build --platform linux/amd64 -t node-app-hello:8.0 .
+
 docker logs node-app
+
+docker tag node-app:1.0 kumaran26/node-app:v1.0
+
+docker login
+docker push kumaran26/node-app:v1.0
+docker logout 
+
+npm install --save-dev --save-exact prettier
+
+npm install pg --save
