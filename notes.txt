@@ -24,3 +24,8 @@ docker logout
 npm install --save-dev --save-exact prettier
 
 npm install pg --save
+
+connect with cloud proxy
+curl -o cloud-sql-proxy https://storage.googleapis.com/cloud-sql-connectors/cloud-sql-proxy/v2.13.0/cloud-sql-proxy.darwin.arm64
+chmod +x cloud-sql-proxy
+/cloud-sql-proxy --address 0.0.0.0 --port 1234 my-react-project-97ea7:us-central1:demo-db
